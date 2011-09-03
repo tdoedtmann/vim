@@ -1,1 +1,4 @@
 Here is my personal VIM configuration
+
+TODO:
+* The files "de.utf-8.spl" and "de.utf-8.sug" must be copied in the directory "~/.vim/spell/"
