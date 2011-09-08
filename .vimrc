@@ -1,6 +1,6 @@
 " ##### OPTIONS
   let g:snips_author = 'Timo Strotmann'
-  let g:snips_author_email = 'strotmann@saltation.de'
+  let g:snips_author_email = 'timo@timo-strotmann.de'
   let g:snips_author_company = 'saltation GmbH \& Co. KG'
   let mapleader = ","
 
@@ -11,14 +11,15 @@
   syntax on                                           " Syntax highlighting aktivieren
   set mouse=a                                         " use mouse as usual
   set encoding=utf-8                                  " These are highly recommended options.
-  scriptencoding utf-8                                " Wandelt die Datei gegebenenfalls nach UTF-8
+  "scriptencoding utf-8                                " Wandelt die Datei gegebenenfalls nach UTF-8
   set viewoptions=folds,options,cursor,unix,slash     " better unix / windows compatibility
   set virtualedit=onemore                             " Erlaubt den Cursor hinter das letzte Zeichen zu setzen
   set history=1000                                    " History des Kommandozeilen-Eingaben auf die letzten 1000 beschränken (default ist 20)
-  setlocal spell spelllang=de_de                      " Spell-Checking aktivieren und auf alter und neuer Rechtschreibung festlegen
+  " setlocal spell spelllang=de_de                      " Spell-Checking aktivieren und auf alter und neuer Rechtschreibung festlegen
                                                       " ]s  Zum nächsten falsch geschrieben Wort gehen
                                                       " [s  Zum vorherigen falsch geschrieben Wort gehen
                                                       " z=  Zeigt eventuelle Vorschläge für die Korrektur an
+  map <F8>  :setlocal spell spelllang=de_de <return>
     " --- Backup Files in ~/.vim/backups erstellen und Dateiendung .bak anfügen
   set backup
   set backupdir=~/.backups
@@ -49,7 +50,7 @@
   set backspace=indent,eol,start                      " Backspace im Einfüge-Modus erlauben
   set linespace=0                                     " No extra spaces between rows
   set showmatch                                       " öffnende und schließende Klammern hervorheben
-  set winminheight=0                                  " windows can be 0 line high 
+  "set winminheight=0                                  " windows can be 0 line high 
   set scrolljump=5                                    " lines to scroll when cursor leaves screen
   set scrolloff=3                                     " Maintain more context around the cursor
 
@@ -125,7 +126,6 @@
 
 " ##### PLUGIN SETTINGS
   " --- vbundle
-  filetype off                                        " required!
   set rtp+=~/.vim/bundle/vundle/
   call vundle#rc()
 
@@ -147,7 +147,7 @@
   " --- My Bundles:
 
   " Farbschema
-  Bundle 'xoria256.vim'
+  "Bundle 'xoria256.vim'
   Bundle 'Color-Sampler-Pack'
     colorscheme wombat256
     " colorscheme neon
@@ -181,7 +181,7 @@
 
   " Direktes Highlighting bei der Eingabe von Suchbegriffen
   Bundle 'Lokaltog/vim-easymotion'
-  
+
   " HTML schneller zu schreiben: #album.photo  =>  <div id="album" class="photo">|</div>
   " see http://jetpackweb.com/blog/2010/03/04/write-html-faster-with-sparkup-vim-and-textmate/
   Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -214,18 +214,8 @@
   " Syntaxchecker, auch für PHP
   Bundle 'scrooloose/syntastic'
 
-  " Neueres PHP Syntaxfile
-  Bundle 'php.vim--Hodge'
-
-  " Hinterlegt den Farbcode in CSS-Datei mit der entsprechenden Farbe
-  Bundle 'css.vim'
-  Bundle 'css_color.vim'
-
-  " Rails-IDE, bietet viele Rails-spezifische Features
-  "Bundle 'rails.vim'
-
   " Code-Schnipsel
-  Bundle 'https://github.com/msanders/snipmate.vim.git'
+  Bundle 'snipMate'
 
   " 
   Bundle 'L9'

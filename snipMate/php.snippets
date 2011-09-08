@@ -15,21 +15,21 @@ snippet req1
 # $GLOBALS['...']
 snippet globals
 	$GLOBALS['${1:variable}']${2: = }${3:something}${4:;}${5}
-snippet $_ COOKIE['...']
+snippet $_COOKIE['...']
 	$_COOKIE['${1:variable}']${2}
-snippet $_ ENV['...']
+snippet $_ENV['...']
 	$_ENV['${1:variable}']${2}
-snippet $_ FILES['...']
+snippet $_FILES['...']
 	$_FILES['${1:variable}']${2}
-snippet $_ GET['...']
+snippet $_GET['...']
 	$_GET['${1:variable}']${2}
-snippet $_ POST['...']
+snippet $_POST['...']
 	$_POST['${1:variable}']${2}
-snippet $_ REQUEST['...']
+snippet $_REQUEST['...']
 	$_REQUEST['${1:variable}']${2}
-snippet $_ SERVER['...']
+snippet $_SERVER['...']
 	$_SERVER['${1:variable}']${2}
-snippet $_ SESSION['...']
+snippet $_SESSION['...']
 	$_SESSION['${1:variable}']${2}
 # Start Docblock
 snippet /*
@@ -237,14 +237,33 @@ snippet try
 # $... = array (...)
 snippet array
 	$${1:arrayName} = array('${2}' => ${3});${4}
-# Own Snippets
-snippet devlog
-	// Severity: 0 is info, 1 is notice, 2 is warning, 3 is fatal error, -1 is "OK" message
-	t3lib_div::devLog("${1:message}", '${2:extensionKey}', ${3:severity}, $${4:dataArray});
-snippet trim
-	t3lib_div::trimExplode(',', $${1:variable}, 1);
-snippet view_array
-	echo t3lib_div::view_array($${1:variable});
+
+##########################################################################
+# Own Snippets ###########################################################
+##########################################################################
+
+##########################################################################
+# GENERAL ################################################################
+# Gibt den akt. Timestamp zurueck
+snippet time
+	`system("date +%s")`
+# $this->...
+snippet ta
+	$this->${1:attr}${2};
+snippet tm
+	$this->${1:method}(${2:args})${3};
+snippet a
+	->${1:attr}${2}
+snippet m
+	->${1:method}(${2:args})${3}
+snippet k
+	'${1:key}' => ${2:value}
+snippet ks
+	'${1:key}' => '${2:value}'
+snippet $a
+	$${1:name}->${2:method}${3}
+snippet $m
+	$${1:name}->${2:method}(${3:args})${4}
 snippet br
 	echo "<br />{$${1:variable}}";
 snippet dump
@@ -255,3 +274,15 @@ snippet print
 	echo '<pre>' . __LINE__ . ': ' . __METHOD__;
 	print_r($${1:variable});
 	echo '</pre>';
+
+##########################################################################
+# TYPO3 ##################################################################
+snippet t3_devlog
+	// Severity: 0 is info, 1 is notice, 2 is warning, 3 is fatal error, -1 is "OK" message
+	t3lib_div::devLog("${1:message}", '${2:extensionKey}', ${3:severity}, $${4:dataArray});
+snippet t3_deplog
+	t3lib_div::logDeprecatedFunction();
+snippet t3_trim
+	t3lib_div::trimExplode(',', $${1:variable}, 1);
+snippet t3_view_array
+	echo t3lib_div::view_array($${1:variable});
